@@ -1,0 +1,8 @@
+---
+
+settings:
+  - { domain: com.apple.dock, key: autohide, type: bool, value: TRUE }
+  - { domain: com.apple.AppleMultitouchTrackpad, key: Clicking, type: bool, value: TRUE }
+  - { domain: com.apple.AppleMultitouchTrackpad, key: TrackpadRightClick, type: bool, value: TRUE }
+  - { domain: com.apple.AppleMultitouchTrackpad, key: TrackpadThreeFingerTapGesture, type: int, value: 2 }
+    #  - { domain:, key:, type:, value: }

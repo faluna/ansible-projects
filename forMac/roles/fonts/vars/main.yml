@@ -1,0 +1,12 @@
+---
+
+taps:
+  - homebrew/cask-fonts
+  - sanemat/font
+
+packages:
+  - { name: font-ricty-diminished, state: present }
+  - { name: font-myrica, state: present }
+  - { name: font-fontawesome, state: present }
+  - { name: font-awesome-terminal-fonts, state: present }
+    

@@ -1,0 +1,19 @@
+---
+
+taps:
+  - homebrew/cask
+  - homebrew/cask-versions
+  - homebrew/core
+
+packages:
+  - { name: ansible, state: present }
+  - { name: git, state: present }
+  - { name: mas, state: present }
+  - { name: tree, state: present }
+  - { name: zsh, state: present }
+  - { name: neovim, state: present }
+  - { name: anyenv, state: present }
+  - { name: wget, state: present }
+  - { name: cmake, state: present }
+  - { name: tmux, state: present }
+  - { name: hub, state: present }

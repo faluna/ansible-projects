@@ -1,0 +1,11 @@
+---
+
+packages:
+  - { name: airmail-beta, state: present }
+  - { name: docker, state: present }
+  - { name: gimp, state: present }
+  - { name: google-chrome, state: present }
+  - { name: iterm2, state: present }
+  - { name: geektool, state: present }
+  - { name: skype, state: present }
+  - { name: slack, state: present }

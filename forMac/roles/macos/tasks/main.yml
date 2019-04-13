@@ -1,0 +1,14 @@
+---
+
+- block:
+  # check defaults
+  # $ defaults read
+  - name: set osx defaults
+    osx_defaults:
+      domain: "{{ item.domain }}"
+      key: "{{ item.key }}"
+      type: "{{ item.type }}"
+      value: "{{ item.value }}"
+    with_items: "{{ settings }}"
+  tags:
+    - osx_defaults

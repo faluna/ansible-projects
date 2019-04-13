@@ -1,0 +1,48 @@
+---
+
+- block:
+
+  - name: already tapped
+    shell: brew tap
+    register: brew_taps_list
+    changed_when: False
+    check_mode: no
+
+  - block:
+
+    - name: homebrew tap
+      homebrew_tap:
+        name: "{{ item }}"
+        state: present
+        when: '"item" not in brew_taps_list.stdout_lines'
+        with_item: "{{ taps }}"
+        
+        
+    - block:
+      
+        - name: install fonts by brew cask
+          environment:
+            HOMEBREW_CASK_OPTS: --appdir=/Applications
+          homebrew_cask:
+            name: "{{ item.name }}"
+            state: "{{ item.state | default('present') }}"
+          with_items: "{{ packages }}"
+
+        - name: install xquartz
+          homebrew_cask:
+            name: xquartz
+            state: present
+        - name: install ricty
+          homebrew:
+            name: ricty
+            state: present
+        - name: copy generated font file
+          shell: "cp -f $(brew --cellar ricty)/*/share/fonts/Ricty*.ttf ~/Library/Fonts/"
+          args:
+            creates: ~/Library/Fonts/Ricty-Bold.ttf
+          notify: run fc-cache
+
+        tags:
+          - cask_fonts
+
+

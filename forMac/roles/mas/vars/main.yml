@@ -1,0 +1,7 @@
+---
+
+packages:
+  - { id: 443987910, name: 1Password }
+  - { id: 405843582, name: Alfred }
+  - { id: 1026566364, name: GoodNotes }
+  - { id: 539883307, name: LINE }
