@@ -14,8 +14,8 @@
       homebrew_tap:
         name: "{{ item }}"
         state: present
-        when: '"item" not in brew_taps_list.stdout_lines'
-        with_item: "{{ taps }}"
+      with_items: 
+        - "{{ taps }}"
         
         
     - block:
@@ -42,7 +42,7 @@
             creates: ~/Library/Fonts/Ricty-Bold.ttf
           notify: run fc-cache
 
-        tags:
-          - cask_fonts
+      tags:
+        - cask_fonts
 
 
