@@ -42,7 +42,7 @@
             creates: ~/Library/Fonts/Ricty-Bold.ttf
           notify: run fc-cache
 
-        tags:
-          - cask_fonts
+      tags:
+        - cask_fonts
 
 

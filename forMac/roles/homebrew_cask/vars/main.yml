@@ -9,3 +9,6 @@ packages:
   - { name: geektool, state: present }
   - { name: skype, state: present }
   - { name: slack, state: present }
+  - { name: karabiner-elements, state: present }
+  - { name: magicprefs, state: present }
+  - { name: anydesk, state: present }
