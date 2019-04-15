@@ -17,3 +17,4 @@ packages:
   - { name: cmake, state: present }
   - { name: tmux, state: present }
   - { name: hub, state: present }
+  - { name: zsh-completions, state: present }
