@@ -1,0 +1,29 @@
+---
+
+- block:
+  - name: using shell
+    shell: echo $SHELL
+    register: used_shell
+    changed_when: False
+    check_mode: no
+
+  - name: get /etc/shells list
+    shell: cat /etc/shells
+    register: shells_lists
+    changed_when: False
+    check_mode: no
+
+  - block:
+    - name: add zsh path to /etc/shells
+      shell: echo /user/local/bin/zsh >> /etc/shells
+      become: True
+      when: '"/user/local/bin/zsh" not in shells_lists.stdout_lines'
+
+    - name: change the login shell
+      shell: chsh -s /usr/local/bin/zsh
+      become: True
+
+  when: '"/user/local/bin/zsh" not in used_shell.stdout'
+
+  tag:
+    - chsh

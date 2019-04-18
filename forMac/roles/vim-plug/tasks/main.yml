@@ -1,0 +1,11 @@
+---
+
+- block:
+  - name: get dein.vim
+    get_url:
+      url: https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh
+      dest: ~/dein_installer.sh
+      register: get_dein
+  - name: install dein
+    shell: 'sh ./dein_installer.sh ~/.cache/dein'
+    when: get_dein|changed

@@ -1,0 +1,17 @@
+---
+
+-block:
+  - name: get $HOME directory list of files or derectoryies starting with ".z"
+    shell: echo &HOME/.z*
+    register: HOME_lists
+    changed_when: False
+    check_mode: no
+
+  - block:
+    - name: git clone prezto
+      git:
+        repo: https://github.com/sorin-ionescu/prezto.git
+        dest: $HOME/.zprezto
+        depth: 1
+        recursive: yes
+      when: '".zprezto" not in HOME_lists.stdout'
