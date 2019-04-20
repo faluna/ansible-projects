@@ -18,3 +18,9 @@ packages:
   - { name: tmux, state: present }
   - { name: hub, state: present }
   - { name: zsh-completions, state: present }
+  - { name: openssl, state: present }
+  - { name: readline, state: present }
+  - { name: sqlite3, state: present }
+  - { name: xz, state: present }
+  - { name: zlib, state: present }
+

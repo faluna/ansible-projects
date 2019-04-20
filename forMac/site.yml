@@ -12,3 +12,6 @@
     - prezto
     - colors
     - dotfiles
+    - anyenv
+    - pyenv
+    - vim-plug

@@ -36,6 +36,7 @@
           homebrew:
             name: ricty
             state: present
+            install_options: with-powerline
         - name: copy generated font file
           shell: "cp -f $(brew --cellar ricty)/*/share/fonts/Ricty*.ttf ~/Library/Fonts/"
           args:

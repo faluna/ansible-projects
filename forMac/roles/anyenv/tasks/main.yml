@@ -1,0 +1,31 @@
+---
+
+- block:
+  - name: get config_list
+    shell: echo "$(ls -1 ~/.config)"
+    register: config_list
+    changed_when: False
+    check_mode: no
+  - block:
+    - name: shell restart
+      shell: exec $SHELL -l
+      changed_when: False
+      check_mode: no
+    - name: initialize anyenv
+      shell: anyenv install --init
+    when: '"anyenv" not in config_list.stdout.lines'
+
+  - block:
+    - name: make directory ~/.anyenv/plugins
+      file:
+        path: ~/.anyenv/plugins
+        state: directory
+    - name: install anyenv plugins
+      git:
+        repo: "{{ item.repo }}"
+        dest: "{{ item.dest }}"
+        depth: "{{ item.depth | default(1) }}"
+      with_items:
+        - "{{ anyenv_plugins }}"
+  tags:
+    - anyenv

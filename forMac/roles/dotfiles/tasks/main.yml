@@ -2,7 +2,7 @@
 
 - block:
   - name: get file list in the $HOME derectory list
-    shell: echo &HOME/*
+    shell: echo $HOME/*
     register: HOME_list
     changed_when: False
     check_mode: no
@@ -14,5 +14,6 @@
         dest: ~/dotfiles
         depth: 1
       when: '"dotfiles" not in HOME_list.stdout'
-  - tag:
+      notify: symlink
+  tags:
     - dotfiles

@@ -1,6 +1,6 @@
 ---
 
-- blocks:
+- block:
   - name: make directory "colors"
     file:
       path: ~/colors
@@ -10,5 +10,6 @@
   - name: get Iceberg for terminal
     get_url:
       url: https://github.com/aseom/dotfiles/blob/master/osx/iterm2/iceberg.itermcolors
-      dest: ~/color/iceberg.itermcolors
-
+      dest: ~/colors/iceberg.itermcolors
+  tags:
+    - colors

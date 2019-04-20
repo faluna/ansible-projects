@@ -1,0 +1,14 @@
+---
+
+- block:
+  - name: install pyenv by using anyenv
+    shell: anyenv install pyenv
+  - name: shell restart
+    shell: exec $SHELL -l
+  - name: install the addtional SDK headers
+    shell: sudo installer -pkg /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg -target /
+    become: True
+  - name: python3.7.3 install
+    shell: pyenv install 3.7.3
+  tags:
+    - pyenv

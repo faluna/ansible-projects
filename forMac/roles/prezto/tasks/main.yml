@@ -1,8 +1,8 @@
 ---
 
--block:
+- block:
   - name: get $HOME directory list of files or derectoryies starting with ".z"
-    shell: echo &HOME/.z*
+    shell: echo $HOME/.z*
     register: HOME_lists
     changed_when: False
     check_mode: no
@@ -15,3 +15,5 @@
         depth: 1
         recursive: yes
       when: '".zprezto" not in HOME_lists.stdout'
+  tags:
+    - prezto

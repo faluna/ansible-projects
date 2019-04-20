@@ -1,0 +1,4 @@
+---
+
+- name: symlink
+  shell: zsh ~/dotfiles/symlink.sh

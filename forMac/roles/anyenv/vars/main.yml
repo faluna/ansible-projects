@@ -1,0 +1,12 @@
+---
+
+anyenv_plugins:
+  - { repo: https://github.com/znz/anyenv-update.git,
+      dest: $HOME/.anyenv/plugins/anyenv-update,
+      depth: 1
+    }
+  - {
+        repo: https://github.com/znz/anyenv-git.git,
+        dest: $HOME/.anyenv/plugins/anyenv-git,
+        depth: 1
+    }
