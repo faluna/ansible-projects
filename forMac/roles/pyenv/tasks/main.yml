@@ -1,14 +1,40 @@
 ---
 
 - block:
-  - name: install pyenv by using anyenv
-    shell: anyenv install pyenv
-  - name: shell restart
-    shell: exec $SHELL -l
-  - name: install the addtional SDK headers
-    shell: sudo installer -pkg /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg -target /
-    become: True
-  - name: python3.7.3 install
-    shell: pyenv install 3.7.3
-  tags:
-    - pyenv
+  -block:
+    - name: install pyenv by using anyenv
+      shell: anyenv install pyenv
+    - name: shell restart
+      shell: exec $SHELL -l
+    - name: install the addtional SDK headers
+      shell: sudo installer -pkg /Library/Developer/CommandLineTools/Packages/macOS_SDK_headers_for_macOS_10.14.pkg -target /
+      become: True
+    tags:
+      - pyenv
+  - block:
+    - name: python3.7.3 install
+      shell: pyenv install 3.7.3
+    - name: pyenv virtualenv for neovim3
+      shell: pyenv virtualenv 3.7.3 neovim3
+    - name: virtualenv neovim3 activate
+      shell: pyenv activate neovim3
+    - name: pip install neovim
+      shell: pip3 install --upgrade neovim
+    - name: deactivate neovim3
+      shell: source deactivate neovim3
+    tags:
+      - neovim3
+  - block:
+    - name: python2.7.16 install
+      shell: pyenv install 2.7.16
+    - name: pyenv virtualenv for neovim2
+      shell: pyenv virtualenv 2.7.16 neovim2
+    - name: virtualenv neovim2 activate
+      shell: pyenv activate neovim2
+    - name: pip2 install neovim
+      shell: pip2 install --upgrade neovim
+    - name: deactivate neovim2
+      shell: source deactivate neovim2
+    tags:
+      - neovim2
+

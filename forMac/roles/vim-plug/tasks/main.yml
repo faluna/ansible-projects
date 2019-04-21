@@ -11,19 +11,5 @@
     args:
       chdir: $HOME/
     when: get_dein|changed
-
-  - block:
-    - name: make directory ~/venv
-      file:
-        path: ~/venv
-        state: directory
-    - name: make directory nvim-env in venv
-      file:
-        path: ~/venv/nvim-env
-        state: directory
-    - name: change python version by local command
-      shell: pyenv local 3.7.3
-      args:
-        chdir: $HOME/venv/nvim-env
   tags:
     - vim-plug
