@@ -11,9 +11,11 @@
       shell: exec $SHELL -l
       changed_when: False
       check_mode: no
+      become: True
     - name: initialize anyenv
       shell: anyenv install --init
-    when: '"anyenv" not in config_list.stdout.lines'
+      become: True
+    when: '"anyenv" not in config_list.stdout_lines'
 
   - block:
     - name: make directory ~/.anyenv/plugins

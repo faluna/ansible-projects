@@ -23,5 +23,3 @@ packages:
   - { name: sqlite3, state: present }
   - { name: xz, state: present }
   - { name: zlib, state: present }
-  - { name: pyenv-virtualenv, state: present }
-

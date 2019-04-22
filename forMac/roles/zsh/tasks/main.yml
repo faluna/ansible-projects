@@ -24,7 +24,8 @@
         shell: chsh -s /usr/local/bin/zsh
         become: True
 
-    when: '"/usr/local/bin/zsh" not in used_shell'
+
+    when: '"/usr/local/bin/zsh" not in used_shell.stdout'
 
   tags:
     - chsh

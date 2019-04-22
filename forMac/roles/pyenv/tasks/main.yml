@@ -1,7 +1,7 @@
 ---
 
 - block:
-  -block:
+  - block:
     - name: install pyenv by using anyenv
       shell: anyenv install pyenv
     - name: shell restart
@@ -11,6 +11,7 @@
       become: True
     tags:
       - pyenv
+
   - block:
     - name: python3.7.3 install
       shell: pyenv install 3.7.3
@@ -24,6 +25,7 @@
       shell: source deactivate neovim3
     tags:
       - neovim3
+
   - block:
     - name: python2.7.16 install
       shell: pyenv install 2.7.16

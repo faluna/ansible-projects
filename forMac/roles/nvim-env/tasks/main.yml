@@ -1,0 +1,9 @@
+---
+
+- block:
+  - name: create virtualenv for neovim
+    shell: 'sh ./init.sh'
+    args:
+      chdir: $HOME/dotfiles/nvim/
+  tags:
+    - nvim-env

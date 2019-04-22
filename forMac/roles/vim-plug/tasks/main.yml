@@ -4,12 +4,12 @@
   - name: get dein.vim
     get_url:
       url: https://raw.githubusercontent.com/Shougo/dein.vim/master/bin/installer.sh
-      dest: ~/dein_installer.sh
+      dest: $HOME/used/dein_installer.sh
     register: get_dein
   - name: install dein
     shell: 'sh ./dein_installer.sh ~/.cache/dein'
     args:
-      chdir: $HOME/
-    when: get_dein|changed
+      chdir: $HOME/used/
+    when: get_dein is changed
   tags:
     - vim-plug
