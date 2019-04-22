@@ -46,8 +46,21 @@
           args:
             creates: ~/Library/Fonts/Ricty-Bold.ttf
           notify: run fc-cache
-
+        - name: make directory fonts
+          file:
+            path: $HOME/fonts
+            state: directory
+        - name: clone fontmerger
+          git:
+            repo: https://github.com/iij/fontmerger
+            dest: $HOME/fonts/fontmerger
+            depth: 1
+        - name: create Ricty Discord patched all icons 
+          shell: bin/fontmerger --all -o ~/Library/Fonts/ --suffix=with-all-icons -- ~/Library/Fonts/RictyDiscord-Regular.ttf
+          args:
+            chdir: $HOME/fonts/fontmerger/
+          notify: run fc-cache
       tags:
         - cask_fonts
-
-
+  tags:
+    - fonts
