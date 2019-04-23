@@ -24,3 +24,4 @@ packages:
   - { name: xz, state: present }
   - { name: zlib, state: present }
   - { name: fontforge, state: present }
+  - { name: urlview, state: present }
