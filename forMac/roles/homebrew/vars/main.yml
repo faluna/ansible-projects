@@ -25,3 +25,6 @@ packages:
   - { name: zlib, state: present }
   - { name: fontforge, state: present }
   - { name: urlview, state: present }
+  - { name: ripgrep, state: present }
+  - { name: bat, state: present }
+  - { name: fzf, state: present }
